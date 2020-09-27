@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pages="clr-namespace:ESILib.Pages"
+       x:Class="ESILib.MainPage"
+       FlyoutBehavior="Disabled">
+
+    <FlyoutItem Title="ESILIB">
+        <ShellContent Title="Home">
+            <pages:Home />
+        </ShellContent>
+        <ShellContent Title="All">
+            <pages:Catalogue/>
+        </ShellContent>
+        <ShellContent Title="Profile">
+            <pages:Profile/>
+        </ShellContent>
+    </FlyoutItem>
+</Shell>

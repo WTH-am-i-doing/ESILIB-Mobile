@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:ESILib.Views"
+             x:Class="ESILib.Pages.Introduction">
+    <Grid>
+        <CarouselView IsSwipeEnabled="False" x:Name="Carousel" IndicatorView="indicatorView">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <views:IntroView CardTitle="{Binding Title}" CardDescription="{Binding Description}" IconImageSource="{Binding ImageUrl}"/>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <StackLayout Padding="16" VerticalOptions="EndAndExpand" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Button HorizontalOptions="StartAndExpand" Text="Skip" Clicked="SkipButton_Clicked" />
+            <IndicatorView x:Name="indicatorView"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="DarkGray"
+                   HorizontalOptions="CenterAndExpand" />
+            <Button HorizontalOptions="EndAndExpand" Text="Next" Clicked="NextButton_Clicked"/>
+        </StackLayout>
+    </Grid>  
+</ContentPage>

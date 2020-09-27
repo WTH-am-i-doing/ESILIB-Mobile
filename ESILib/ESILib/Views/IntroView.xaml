@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ESILib.Views.IntroView">
+  
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Image Source="{Binding IconImageSource}"
+                Margin="0" HorizontalOptions="Fill" VerticalOptions="Fill"
+                Aspect="AspectFill"/>
+        <StackLayout Grid.Row="1"
+                HeightRequest="2"
+                HorizontalOptions="Fill">
+            <Label Text="{Binding CardTitle, FallbackValue='Card Title'}"
+                   FontAttributes="Bold"
+                   FontSize="22" TextColor="Black"
+                   HorizontalTextAlignment="Center" />
+            <Label Text="{Binding CardDescription, FallbackValue='Card description text.'}"
+                   VerticalTextAlignment="Start"
+                   VerticalOptions="Fill" TextColor="Black"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+
+    </Grid>
+</ContentView>
