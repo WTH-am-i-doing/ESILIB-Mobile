@@ -26,21 +26,37 @@ namespace ESILib.Pages
         }
         private async void GetLatest()
         {
-            books = new ObservableCollection<Book>(await helper.GetLatestBooks());
-            collectbooks = new ObservableCollection<Book>(books.Take(4));
-            Books.ItemsSource = books.Where(i=>!collectbooks.Contains(i));
-            First.ItemsSource = collectbooks;
+            try
+            {
+                books = new ObservableCollection<Book>(await helper.GetLatestBooks());
+                collectbooks = new ObservableCollection<Book>(books.Take(4));
+                Books.ItemsSource = books.Where(i => !collectbooks.Contains(i));
+                First.ItemsSource = collectbooks;
+            }
+            catch
+            {
+                await DisplayAlert("Error", "Check Your Internet Connection And Refresh The Page", "Ok");
+            }
         }
 
-        private void First_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void First_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Book book = (Book)e.CurrentSelection;
-
+            Book book = ((CollectionView)sender).SelectedItem as Book;
+            ((CollectionView)sender).SelectedItem = null;
+            if(book != null)
+                await Shell.Current.Navigation.PushModalAsync(new BookDetails(book));
         }
 
-        private void Books_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void Books_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Book book = (Book)e.Item;
+            await Shell.Current.Navigation.PushModalAsync(new BookDetails(book));
+        }
+
+        private void RefreshView_Refreshing(object sender, EventArgs e)
+        {
+            GetLatest();
+            ((RefreshView)sender).IsRefreshing = false;
         }
     }
 }

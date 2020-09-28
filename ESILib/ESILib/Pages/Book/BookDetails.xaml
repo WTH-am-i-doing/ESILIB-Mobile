@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ESILib.Pages.BookDetails" BackgroundColor="#ddd">
+    <ScrollView Margin="0">
+        <StackLayout Margin="0">
+            <StackLayout Orientation="Horizontal">
+                <Button Text="&#xf060;" FontFamily="{x:StaticResource Key=Solid}" Clicked="BackButton_Clicked" BackgroundColor="White" TextColor="Black" FontSize="18" CornerRadius="15" Margin="10" HorizontalOptions="StartAndExpand"/>
+                <Button x:Name="Fav" FontFamily="{x:StaticResource Key=Solid}" Clicked="Fav_Clicked" Text="&#xf004;" CornerRadius="15" Margin="10" FontSize="18" TextColor="Gray" BackgroundColor="White"/>
+            </StackLayout>
+            <Grid>
+                <Frame BackgroundColor="White" HasShadow="False"  CornerRadius="12" Margin="16,140,16,16" Padding="5,100,5,5">
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding Author,StringFormat='by - {0}'}" TextColor="Gray" HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding Title}" HorizontalTextAlignment="Center" FontSize="24" FontAttributes="Bold" TextColor="Black"/>
+                        <Frame BackgroundColor="Gray" Padding="2" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="{Binding ISBN,StringFormat='ISBN : {0}'}" TextColor="White" Margin="0"/>
+                        </Frame>
+                        <Label Text="{Binding Description}"/>
+                        <Label Text="{Binding Available,StringFormat='Available : {0}'}" Margin="0,20,0,10"/>
+                    </StackLayout>
+                </Frame>
+                <Frame x:Name="ImageSubview" VerticalOptions="StartAndExpand" HasShadow="True" BackgroundColor="Transparent" CornerRadius="12" Margin="0,0,0,0" Padding="0" IsClippedToBounds="True" HorizontalOptions="Center" HeightRequest="240" WidthRequest="160">
+                    <Image BackgroundColor="Transparent" HeightRequest="240" Margin="0" Source="{Binding Coverurl}" x:Name="MainImg" HorizontalOptions="CenterAndExpand" WidthRequest="160" VerticalOptions="CenterAndExpand" Aspect="Fill"/>
+                </Frame>
+            </Grid>
+            <Button x:Name="Requesting" Text="Request This Book ?" Margin="10" CornerRadius="10" BackgroundColor="Black" TextColor="White"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
