@@ -18,6 +18,7 @@ namespace ESILib.Pages
     {
         private FirebaseHelper helper = new FirebaseHelper();
         private ObservableCollection<Book> books ;
+        private ObservableCollection<Book> collectbooks;
         public Home()
         {
             InitializeComponent();
@@ -26,7 +27,20 @@ namespace ESILib.Pages
         private async void GetLatest()
         {
             books = new ObservableCollection<Book>(await helper.GetLatestBooks());
-            Books.ItemsSource = books.Take(7);
+            collectbooks = new ObservableCollection<Book>(books.Take(4));
+            Books.ItemsSource = books.Where(i=>!collectbooks.Contains(i));
+            First.ItemsSource = collectbooks;
+        }
+
+        private void First_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Book book = (Book)e.CurrentSelection;
+
+        }
+
+        private void Books_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Book book = (Book)e.Item;
         }
     }
 }
