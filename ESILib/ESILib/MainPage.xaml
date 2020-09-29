@@ -1,17 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pages="clr-namespace:ESILib.Pages"
-       x:Class="ESILib.MainPage" Shell.NavBarHasShadow="False" Shell.BackgroundColor="#eee"
+       x:Class="ESILib.MainPage" Shell.NavBarHasShadow="False" Shell.BackgroundColor="Transparent" Shell.TabBarBackgroundColor="Black" Shell.TabBarUnselectedColor="#aaa"  Shell.TabBarTitleColor="#fff"
        FlyoutBehavior="Disabled">
 
     <FlyoutItem Title="ESILIB">
         <ShellContent Title="Home">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="{StaticResource Key=Solid}" Glyph="&#xf015;"/>
+            </ShellContent.Icon>
             <pages:Home />
         </ShellContent>
         <ShellContent Title="All">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="{StaticResource Key=Solid}" Glyph="&#xf5db;"/>
+            </ShellContent.Icon>
             <pages:Catalogue/>
         </ShellContent>
         <ShellContent Title="Profile">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="{StaticResource Key=Solid}" Glyph="&#xf2bd;"/>
+            </ShellContent.Icon>
             <pages:Profile/>
         </ShellContent>
     </FlyoutItem>
