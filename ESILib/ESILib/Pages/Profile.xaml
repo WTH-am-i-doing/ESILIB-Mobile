@@ -1,12 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ESILib.Pages.Profile">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:ESILib.Views"
+             x:Class="ESILib.Pages.Profile" Shell.NavBarIsVisible="False">
+    <StackLayout>
+        <views:UserSmallView/>
+        <ScrollView>
+            <StackLayout>
+                <Frame Margin="16,0" CornerRadius="12" HasShadow="False" BackgroundColor="#eee">
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf53f;"/>
+                        <Label VerticalOptions="Center" Text="Theme" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Label FontFamily="{StaticResource Key=Solid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="&#xf054;"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="16,0" CornerRadius="12" HasShadow="False" BackgroundColor="#eee">
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf0f3;"/>
+                        <Label VerticalOptions="Center" Text="Notifications" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Label FontFamily="{StaticResource Key=Solid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="&#xf054;"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
 </ContentPage>
