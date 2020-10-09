@@ -38,5 +38,13 @@ namespace ESILib.Pages
             OnLaunch();
             ((RefreshView)sender).IsRefreshing = false;
         }
+
+        private async void bookList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Book book = ((CollectionView)sender).SelectedItem as Book;
+            ((CollectionView)sender).SelectedItem = null;
+            if (book != null)
+                await Shell.Current.Navigation.PushModalAsync(new BookDetails(book));
+        }
     }
 }

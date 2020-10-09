@@ -2,14 +2,14 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ESILib.Views.UserSmallView">
-    <Frame Margin="16" VerticalOptions="StartAndExpand">
+    <Frame Margin="16" CornerRadius="12" VerticalOptions="StartAndExpand" HasShadow="False">
         <StackLayout Orientation="Horizontal" Spacing="18">
-            <Frame Padding="0" IsClippedToBounds="False" CornerRadius="12">
-                <Image Source="https://dribbble.com/shots/11369956/attachments/2982716?mode=media" WidthRequest="100" HeightRequest="100"/>
+            <Frame Padding="0" IsClippedToBounds="False" CornerRadius="60" BackgroundColor="#eee" HasShadow="False">
+                <Image Source="https://dribbble.com/shots/11369956/attachments/2982716?mode=media" HeightRequest="80" WidthRequest="80" Aspect="AspectFit"/>
             </Frame>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
-                <Label Text="User Name" TextColor="Black" FontSize="24" FontAttributes="Bold"/>
-                <Label Text="Student Of ESI-SBA" TextColor="Black" FontSize="18" />
+                <Label x:Name="user" Text="User Name" TextColor="Black" FontSize="22" FontAttributes="Bold"/>
+                <Label x:Name="year" Text="Student Of ESI-SBA" TextColor="Black" FontSize="18" />
             </StackLayout>
         </StackLayout>
     </Frame>

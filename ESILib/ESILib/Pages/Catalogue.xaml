@@ -3,22 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ESILib.Pages.Catalogue" Shell.NavBarIsVisible="False">
     <RefreshView Refreshing="RefreshView_Refreshing">
-        <CollectionView x:Name="bookList" Margin="8,1"
-                        SelectionMode="Single"
+        <StackLayout>
+            <SearchBar></SearchBar>
+            <CollectionView x:Name="bookList" Margin="8,1"
+                        SelectionMode="Single" SelectionChanged="bookList_SelectionChanged"
                         >
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical"
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
                         Span="3"
                         VerticalItemSpacing="16"
                         HorizontalItemSpacing="14" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Padding="0" HasShadow="True" Margin="0" CornerRadius="10" BackgroundColor="White">
-                        <Image Source="{Binding Coverurl}" Aspect="Fill" HeightRequest="170" Margin="0"/>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="0" HasShadow="True" Margin="0" CornerRadius="10" BackgroundColor="White">
+                            <Image Source="{Binding Coverurl}" Aspect="Fill" HeightRequest="170" Margin="0"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
     </RefreshView>
 </ContentPage>
