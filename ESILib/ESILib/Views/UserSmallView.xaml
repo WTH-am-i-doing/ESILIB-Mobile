@@ -5,11 +5,11 @@
     <Frame Margin="16" CornerRadius="12" VerticalOptions="StartAndExpand" HasShadow="False">
         <StackLayout Orientation="Horizontal" Spacing="18">
             <Frame Padding="0" IsClippedToBounds="False" CornerRadius="60" BackgroundColor="#eee" HasShadow="False">
-                <Image Source="https://dribbble.com/shots/11369956/attachments/2982716?mode=media" HeightRequest="80" WidthRequest="80" Aspect="AspectFit"/>
+                <Image Source="" x:Name="img" HeightRequest="80" WidthRequest="80" Aspect="AspectFit"/>
             </Frame>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
                 <Label x:Name="user" Text="User Name" TextColor="Black" FontSize="22" FontAttributes="Bold"/>
-                <Label x:Name="year" Text="Student Of ESI-SBA" TextColor="Black" FontSize="18" />
+                <Label Text="Student Of ESI-SBA" TextColor="Black" FontSize="18" />
             </StackLayout>
         </StackLayout>
     </Frame>

@@ -4,6 +4,9 @@
              x:Class="ESILib.Pages.Profile" Shell.NavBarIsVisible="False" BackgroundColor="#eee">
     <StackLayout>
         <views:UserSmallView>
+            <views:UserSmallView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+            </views:UserSmallView.GestureRecognizers>
         </views:UserSmallView>
         <ScrollView>
             <StackLayout>

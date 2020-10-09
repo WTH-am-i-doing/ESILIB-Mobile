@@ -15,6 +15,8 @@ namespace ESILib.Views
         public UserSmallView()
         {
             InitializeComponent();
+            img.Source = App.Current.Properties.ContainsKey("UserPicture")?App.Current.Properties["UserPicture"] as String:"";
+            user.Text = App.Current.Properties.ContainsKey("UserName") ? App.Current.Properties["UserName"] as String : "Login";
         }
     }
 }
