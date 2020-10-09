@@ -1,7 +1,18 @@
-﻿namespace ESILib.Data
+﻿using ESILib.Models;
+using LiteDB;
+using System.Collections.Generic;
+
+namespace ESILib.Data
 {
-    public interface ILiteDBHelper
+    public class LiteDBHelper
     {
-        string GetFilePath(string file);
+        public LiteCollection<Book> Bks;
+
+        public LiteDBHelper(string dbPath)
+        {
+            var db = new LiteDatabase(dbPath);
+            Bks = (LiteCollection<Book>)db.GetCollection<Book>("Books");
+
+        }
     }
 }

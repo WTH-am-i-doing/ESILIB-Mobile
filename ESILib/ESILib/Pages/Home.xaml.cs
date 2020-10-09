@@ -1,5 +1,6 @@
 ﻿using ESILib.Data;
 using ESILib.Models;
+using LiteDB;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +17,7 @@ namespace ESILib.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : ContentPage
     {
+
         private FirebaseHelper helper = new FirebaseHelper();
         private ObservableCollection<Book> books ;
         private ObservableCollection<Book> collectbooks;
@@ -32,10 +34,20 @@ namespace ESILib.Pages
                 collectbooks = new ObservableCollection<Book>(books.Take(4));
                 Books.ItemsSource = books.Where(i => !collectbooks.Contains(i));
                 First.ItemsSource = collectbooks;
+                foreach (var bok in books)
+                {
+                    if (App.LiteDB.Bks.FindOne(b => b.ISBN == bok.ISBN) == null)
+                    {
+                        App.LiteDB.Bks.Insert(bok);
+                    }
+                }
             }
             catch
             {
-                await DisplayAlert("Error", "Check Your Internet Connection And Refresh The Page", "Ok");
+                books = new ObservableCollection<Book>(App.LiteDB.Bks.FindAll().Take(10));
+                collectbooks = new ObservableCollection<Book>(books.Take(4));
+                Books.ItemsSource = books.Where(i => !collectbooks.Contains(i));
+                First.ItemsSource = collectbooks;
             }
         }
 

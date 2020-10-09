@@ -25,11 +25,20 @@ namespace ESILib.Pages
         {
             try
             {
-                bookList.ItemsSource = new ObservableCollection<Book>(await helper.GetAllBooks());
+                var books = await helper.GetAllBooks();
+                bookList.ItemsSource = new ObservableCollection<Book>(books);
+                foreach (var bok in books)
+                {
+                    if(App.LiteDB.Bks.FindOne(b=>b.ISBN == bok.ISBN) == null)
+                    {
+                        App.LiteDB.Bks.Insert(bok);
+                    }
+                }
             }
             catch
             {
-                await DisplayAlert("Error","Check Your Internet Connection","Ok");
+                await DisplayAlert("Error","Check Your Internet Connection To Get All The Available Books","Ok");
+                bookList.ItemsSource = new ObservableCollection<Book>(App.LiteDB.Bks.FindAll());
             }
         }
 
