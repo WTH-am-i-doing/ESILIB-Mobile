@@ -37,7 +37,7 @@ namespace ESILib.Pages
             }
             catch
             {
-                await DisplayAlert("Error","Check Your Internet Connection To Get All The Available Books","Ok");
+                //await DisplayAlert("Error","Check Your Internet Connection To Get All The Available Books","Ok");
                 bookList.ItemsSource = new ObservableCollection<Book>(App.LiteDB.Bks.FindAll());
             }
         }

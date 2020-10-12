@@ -13,11 +13,12 @@
                     <StackLayout Padding="10">
                         <Label Text="{Binding Author,StringFormat='by - {0}'}" TextColor="Gray" HorizontalTextAlignment="Center" />
                         <Label Text="{Binding Title}" HorizontalTextAlignment="Center" FontSize="24" FontAttributes="Bold" TextColor="Black"/>
-                        <Frame BackgroundColor="Gray" Padding="2" HorizontalOptions="Center" VerticalOptions="Center">
-                            <Label Text="{Binding ISBN,StringFormat='ISBN : {0}'}" TextColor="White" Margin="0"/>
-                        </Frame>
+                        
                         <Label Text="{Binding Description}"/>
                         <Label Text="{Binding Available,StringFormat='Available : {0}'}" Margin="0,20,0,10"/>
+                        <Frame BackgroundColor="Gray" Padding="8,2" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="{Binding ISBN,StringFormat='ISBN : {0}'}" TextColor="White" Margin="0"/>
+                        </Frame>
                     </StackLayout>
                 </Frame>
                 <Frame x:Name="ImageSubview" VerticalOptions="StartAndExpand" HasShadow="True" BackgroundColor="Transparent" CornerRadius="12" Margin="0,0,0,0" Padding="0" IsClippedToBounds="True" HorizontalOptions="Center" HeightRequest="240" WidthRequest="160">

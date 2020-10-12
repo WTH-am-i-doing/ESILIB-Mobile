@@ -3,14 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ESILib.Pages.ProfilePages.Login">
     <ScrollView>
-        <Grid Margin="50,0" RowSpacing="50" VerticalOptions="CenterAndExpand"  HorizontalOptions="FillAndExpand" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid  Grid.Row="1" HorizontalOptions="FillAndExpand" >
-                <Button TextColor="Black" Clicked="Button_Clicked" Text="Login With Google" BackgroundColor="White"/>
-            </Grid>
-        </Grid>
+        <StackLayout Padding="32"  VerticalOptions="Center">
+            <Label Text="Welcome To ESI-LIB" TextColor="#5d26ca" FontAttributes="Bold"  FontSize="26" Margin="0,0,0,16"/>
+            <Label Text="Email" TextColor="#5d26ca"/>
+            <Entry x:Name="Email"/>
+            <Label Text="Password" TextColor="#5d26ca"/>
+            <Entry x:Name="Password"/>
+            <Button Text="Login" BackgroundColor="#5d26ca" Clicked="Button_Clicked"/>
+            <BoxView Margin="60,20" HeightRequest="1" Color="LightGray"/>
+            <Button Text="Register" BackgroundColor="Coral" Clicked="RegisterClicked"/> 
+            <Button TextColor="Black" Clicked="Button_Clicked" Text="Login With Google" BackgroundColor="GreenYellow"/>
+
+        </StackLayout>
     </ScrollView>
+            
 </ContentPage>
