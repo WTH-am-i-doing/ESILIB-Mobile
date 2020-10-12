@@ -29,7 +29,7 @@ namespace ESILib.Pages
                 bookList.ItemsSource = new ObservableCollection<Book>(books);
                 foreach (var bok in books)
                 {
-                    if(App.LiteDB.Bks.FindOne(b=>b.ISBN == bok.ISBN) == null)
+                    if (App.LiteDB.Bks.FindOne(b => b.ISBN == bok.ISBN) == null)
                     {
                         App.LiteDB.Bks.Insert(bok);
                     }
