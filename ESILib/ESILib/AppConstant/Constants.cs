@@ -4,23 +4,12 @@ using System.Text;
 
 namespace ESILib.AppConstant
 {
-    class Constants
+    public class Constants
     {
-		public static string AppName = "OAuthNativeFlow";
-
+		public static string Apikey = "AIzaSyA_zMz00krOWKw3Pf1wewi-nF28c4kLLIg";
+		public static string Authdomain = "https://esilib.firebaseio.com/";
 		// OAuth
 		// For Google login, configure at https://console.developers.google.com/
-		public static string iOSClientId = "844060696235-gtoiepn6u6trvaoh5s6uo1a1a3hrcrnq.apps.googleusercontent.com";
-		public static string AndroidClientId = "930307352604-6nal61bs0qjmu5bdq5lak3m0nper8jl2.apps.googleusercontent.com";
-
-		// These values do not need changing
-		public static string Scope = "https://www.googleapis.com/auth/userinfo.email";
-		public static string AuthorizeUrl = "https://accounts.google.com/o/oauth2/auth";
-		public static string AccessTokenUrl = "https://www.googleapis.com/oauth2/v4/token";
-		public static string UserInfoUrl = "https://www.googleapis.com/oauth2/v2/userinfo";
-
-		// Set these to reversed iOS/Android client ids, with :/oauth2redirect appended
-		public static string iOSRedirectUrl = "com.googleusercontent.apps.844060696235-gtoiepn6u6trvaoh5s6uo1a1a3hrcrnq:/oauth2redirect";
-		public static string AndroidRedirectUrl = "com.googleusercontent.apps.930307352604-6nal61bs0qjmu5bdq5lak3m0nper8jl2:/oauth2redirect";
 	}
+	
 }

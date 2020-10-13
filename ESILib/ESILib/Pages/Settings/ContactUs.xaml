@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ESILib.Pages.Settings.ContactUs">
+    <StackLayout>
+        <Image Source="https://www.pexels.com/photo/1714208/download/" BackgroundColor="LightBlue" HeightRequest="220" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Start"/>
+        <Frame Margin="22,-45,22,10" BackgroundColor="AliceBlue" CornerRadius="6" Padding="10,20">
+            <StackLayout>
+                <Label Text="About Us" TextColor="Black" FontAttributes="Bold" FontSize="22" HorizontalOptions="Center"/>
+                <Label Text="Algerian Developers, Making Mobile Applications for iOS and Android. Using A Weird Framework Called Xamarin.Forms." HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </Frame>
+        <Label Text="Our Team" TextColor="Black" FontSize="18" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+        <Grid Margin="22" ColumnSpacing="22">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Frame BackgroundColor="AliceBlue" HorizontalOptions="FillAndExpand" Grid.Column="0">
+                <StackLayout>
+                    <Label Text="Zairi Aimen (aimendev.Wordpress.com)" HorizontalTextAlignment="Center"/>
+                    <Label Text="Mobile Developer" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="AliceBlue" HorizontalOptions="FillAndExpand"  Grid.Column="1">
+                <StackLayout>
+                    <Label Text="Mazouni Abdelkader" HorizontalTextAlignment="Center"/>
+                    <Label Text="Mobile Developer" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>
