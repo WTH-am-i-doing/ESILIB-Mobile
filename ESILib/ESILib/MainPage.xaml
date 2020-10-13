@@ -17,9 +17,9 @@
             </ShellContent.Icon>
             <pages:Catalogue/>
         </ShellContent>
-        <ShellContent Title="Profile">
+        <ShellContent Title="Settings">
             <ShellContent.Icon>
-                <FontImageSource FontFamily="{StaticResource Key=Solid}" Glyph="&#xf2bd;"/>
+                <FontImageSource FontFamily="{StaticResource Key=Solid}" Glyph="&#xf4fe;"/>
             </ShellContent.Icon>
             <pages:Profile/>
         </ShellContent>

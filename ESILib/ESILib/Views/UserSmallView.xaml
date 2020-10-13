@@ -2,15 +2,5 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ESILib.Views.UserSmallView">
-    <Frame Margin="16" CornerRadius="12" VerticalOptions="StartAndExpand" HasShadow="False">
-        <StackLayout Orientation="Horizontal" Spacing="18">
-            <Frame Padding="0" IsClippedToBounds="False" CornerRadius="60" BackgroundColor="#eee" HasShadow="False">
-                <Image Source="" x:Name="img" HeightRequest="80" WidthRequest="80" Aspect="AspectFit"/>
-            </Frame>
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
-                <Label x:Name="user" Text="User Name" TextColor="Black" FontSize="22" FontAttributes="Bold"/>
-                <Label Text="Student Of ESI-SBA" TextColor="Black" FontSize="18" />
-            </StackLayout>
-        </StackLayout>
-    </Frame>
+    
 </ContentView>

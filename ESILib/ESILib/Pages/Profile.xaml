@@ -3,11 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:ESILib.Views"
              x:Class="ESILib.Pages.Profile" Shell.NavBarIsVisible="False" BackgroundColor="#eee">
     <StackLayout>
-        <views:UserSmallView>
-            <views:UserSmallView.GestureRecognizers>
+        <Frame Margin="16" CornerRadius="12" HasShadow="False">
+            <Frame.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
-            </views:UserSmallView.GestureRecognizers>
-        </views:UserSmallView>
+            </Frame.GestureRecognizers>
+            <StackLayout Orientation="Horizontal" Spacing="18">
+                <Frame Padding="0" IsClippedToBounds="True" CornerRadius="60" BackgroundColor="#eee" HasShadow="False">
+                    <Image Source="" x:Name="img" HeightRequest="80" WidthRequest="80" Aspect="AspectFit"/>
+                </Frame>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+                    <Label x:Name="user" Text="User Name" TextColor="Black" FontSize="22" FontAttributes="Bold"/>
+                    <Label Text="Student Of ESI-SBA" TextColor="Black" FontSize="18" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
         <ScrollView>
             <StackLayout>
                 <Frame Margin="16,0" CornerRadius="12" HasShadow="False" BackgroundColor="White">

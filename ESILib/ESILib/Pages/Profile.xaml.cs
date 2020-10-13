@@ -1,4 +1,6 @@
 ﻿using ESILib.Pages.ProfilePages;
+using Firebase.Auth;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +19,30 @@ namespace ESILib.Pages
         {
             InitializeComponent();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            user.Text = App.Current.Properties.ContainsKey("User") ? (JsonConvert.DeserializeObject<UserInfo>(App.Current.Properties["User"] as string)).Email : "Login";
+
+            img.Source = "https://dummyimage.com/400x400/"+GenerateCode(6)+"/fff&text=" + user.Text.ToUpper().First();
+        }
+
+        private string GenerateCode(int length)
+        {
+            const string valid = "0123456789ABCDEF";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                res.Append(valid[rnd.Next(valid.Length)]);
+            }
+            return res.ToString();
+        }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            if (App.Current.Properties.ContainsKey("UserName"))
+            if (App.Current.Properties.ContainsKey("User"))
                 await Shell.Current.Navigation.PushAsync(new ProfilePages.Profile());
             else
                 await Shell.Current.Navigation.PushAsync(new Login());

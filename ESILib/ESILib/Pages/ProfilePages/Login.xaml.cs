@@ -25,7 +25,7 @@ namespace ESILib.Pages.ProfilePages
 
         async void LoginMethod(string useremail,string password)
         {
-            var p2 = useremail.Split('@');
+            var p2 = useremail.Split('@')[1];
             if(!p2.Equals("esi-sba.dz"))
             {
                 await DisplayAlert("Error", "You Are Not From ESI_SBA", "OK");
@@ -38,8 +38,6 @@ namespace ESILib.Pages.ProfilePages
                 AuthDomain = Constants.Authdomain,
                 Providers = new FirebaseAuthProvider[]
                 {
-                    // Add and configure individual providers
-                    new GoogleProvider().AddScopes("email"),
                     new EmailProvider(),
                 },
             };
@@ -50,13 +48,20 @@ namespace ESILib.Pages.ProfilePages
             try
             {
                 var userCredential = await client.SignInWithEmailAndPasswordAsync(useremail, password);
-                App.Current.Properties.Add("User", JsonConvert.SerializeObject(userCredential));
+                App.Current.Properties.Add("User", JsonConvert.SerializeObject(userCredential.User.Info));
                 await App.Current.SavePropertiesAsync();
             }
             catch
             {
                 await DisplayAlert("Wrong Credentials", "Check Your Password And EMail Again", "Ok");
             }
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            string email = useremail.Text;
+            string pass = pswd.Text;
+            LoginMethod(email, pass);
         }
     }
 }

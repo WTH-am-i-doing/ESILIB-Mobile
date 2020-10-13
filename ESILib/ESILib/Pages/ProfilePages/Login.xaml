@@ -4,7 +4,9 @@
              x:Class="ESILib.Pages.ProfilePages.Login">
 
     <StackLayout>
-        
+        <Entry x:Name="useremail"></Entry>
+        <Entry x:Name="pswd"></Entry>
+        <Button Clicked="Button_Clicked"></Button>
     </StackLayout>
     
 </ContentPage>
