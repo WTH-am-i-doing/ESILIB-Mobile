@@ -31,6 +31,7 @@ namespace ESILib.Pages
             try
             {
                 books = new ObservableCollection<Book>(await helper.GetLatestBooks());
+                books = (ObservableCollection<Book>)books.Reverse();
                 collectbooks = new ObservableCollection<Book>(books.Take(4));
                 Books.ItemsSource = books.Where(i => !collectbooks.Contains(i));
                 First.ItemsSource = collectbooks;

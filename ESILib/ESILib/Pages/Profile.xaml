@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:ESILib.Views"
-             x:Class="ESILib.Pages.Profile" Shell.NavBarIsVisible="False" BackgroundColor="#eee">
+             x:Class="ESILib.Pages.Profile" Shell.NavBarIsVisible="False" BackgroundColor="#e9e9e9">
     <StackLayout>
         <Frame Margin="16" CornerRadius="12" HasShadow="False">
             <Frame.GestureRecognizers>
@@ -31,6 +31,21 @@
                         <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf0f3;"/>
                         <Label VerticalOptions="Center" Text="Notifications" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
                         <Label FontFamily="{StaticResource Key=Solid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="&#xf054;"/>
+                    </StackLayout>
+                </Frame>
+                
+                
+                
+                <!-- Log Out Part -->
+                 
+                <Frame Margin="16,16,16,0" x:Name="LogoutFrame" IsVisible="False" CornerRadius="12" HasShadow="False" BackgroundColor="White">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="LogOutTapped"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf2ed;"/>
+                        <Label VerticalOptions="Center" Text="LogOut" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Label FontFamily="{StaticResource Key=Solid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="&#xf2f5;"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

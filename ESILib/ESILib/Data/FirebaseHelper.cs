@@ -66,11 +66,12 @@ namespace ESILib.Data
         }
 
         // Adding A Book To THe Firebase Database
-        public async Task AddRequest(Request request)
+        public async Task<Request> AddRequest(Request request)
         {
-            await firebase
+            var rq = await firebase
               .Child("Requests")
               .PostAsync(request);
+            return rq.Object;
 
         }
 

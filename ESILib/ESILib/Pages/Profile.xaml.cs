@@ -22,7 +22,8 @@ namespace ESILib.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            if (App.Current.Properties.ContainsKey("User"))
+                LogoutFrame.IsVisible = true;
             user.Text = App.Current.Properties.ContainsKey("User") ? (JsonConvert.DeserializeObject<UserInfo>(App.Current.Properties["User"] as string)).Email : "Login";
 
             img.Source = "https://dummyimage.com/400x400/"+GenerateCode(6)+"/fff&text=" + user.Text.ToUpper().First();
@@ -46,6 +47,16 @@ namespace ESILib.Pages
                 await Shell.Current.Navigation.PushAsync(new ProfilePages.Profile());
             else
                 await Shell.Current.Navigation.PushAsync(new Login());
+        }
+
+        private async void LogOutTapped(object sender, EventArgs e)
+        {
+            if(await DisplayAlert("Logging Out","Are you Sure You Want To Log Out", "Yes", "No"))
+            {
+                App.Current.Properties.Remove("User");
+                await App.Current.SavePropertiesAsync();
+                OnAppearing();
+            }
         }
     }
 }

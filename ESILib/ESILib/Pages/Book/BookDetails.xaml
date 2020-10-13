@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Visual="Material"
              x:Class="ESILib.Pages.BookDetails" BackgroundColor="#ddd">
     <ScrollView Margin="0">
         <StackLayout Margin="0">
@@ -13,7 +13,6 @@
                     <StackLayout Padding="10">
                         <Label Text="{Binding Author,StringFormat='by - {0}'}" TextColor="Gray" HorizontalTextAlignment="Center" />
                         <Label Text="{Binding Title}" HorizontalTextAlignment="Center" FontSize="24" FontAttributes="Bold" TextColor="Black"/>
-                        
                         <Label Text="{Binding Description}"/>
                         <Label Text="{Binding Available,StringFormat='Available : {0}'}" Margin="0,20,0,10"/>
                         <Frame BackgroundColor="Gray" Padding="8,2" HorizontalOptions="Center" VerticalOptions="Center">
@@ -25,7 +24,7 @@
                     <Image BackgroundColor="Transparent" HeightRequest="240" Margin="0" Source="{Binding Coverurl}" x:Name="MainImg" HorizontalOptions="CenterAndExpand" WidthRequest="160" VerticalOptions="CenterAndExpand" Aspect="Fill"/>
                 </Frame>
             </Grid>
-            <Button x:Name="Requesting" Text="Request This Book ?" Margin="10" CornerRadius="10" BackgroundColor="Black" TextColor="White"/>
+            <Button x:Name="Requesting" Clicked="Requesting_Clicked" IsVisible="False" Text="Request This Book ?" Margin="10" CornerRadius="10" BackgroundColor="Black" TextColor="White"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>
