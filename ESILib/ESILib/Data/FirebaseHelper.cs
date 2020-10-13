@@ -47,7 +47,7 @@ namespace ESILib.Data
             try
             {
                 return (await firebase
-               .Child("Book").OrderByKey().LimitToFirst(10).OnceAsync<Book>()).Select(item => new Book
+               .Child("Book").OrderByKey().LimitToLast(10).OnceAsync<Book>()).Select(item => new Book
                {
                    Category = item.Object.Category,
                    BookKey = item.Key,
