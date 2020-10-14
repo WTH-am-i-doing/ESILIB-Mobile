@@ -21,8 +21,8 @@ namespace ESILib.Pages
             BindingContext = book;
             if (App.Current.Properties.ContainsKey("User"))
                 Requesting.IsVisible = true;
-            if (!App.Current.Properties.ContainsKey("RqKey"))
-                Requesting.IsEnabled = true;
+            if (App.Current.Properties.ContainsKey("RqKey"))
+                Requesting.IsEnabled = false;
             this.book = App.LiteDB.Bks.FindOne(b => b.ISBN == book.ISBN);
             Fav.TextColor = this.book.isFavorite ? Color.Red : Color.Gray;
         }
@@ -46,10 +46,10 @@ namespace ESILib.Pages
             {
                 var rqkey = await (new ESILib.Data.FirebaseHelper()).AddRequest(new Request() { BookISBN = book.ISBN, BookTitle = book.Title, dateTime = DateTime.Now, UserEmail = user.Email });
                 // Display An Indication That The Request Has Been Sent
-                App.Current.Properties.Add("RqKey",JsonConvert.SerializeObject(rqkey));
-                await App.Current.SavePropertiesAsync();
+                /*App.Current.Properties.Add("RqKey",JsonConvert.SerializeObject(rqkey));
+                await App.Current.SavePropertiesAsync();*/
                 Requesting.IsEnabled = false;
-                await DisplayAlert("Request Has Been Sent", "Check The Settings Page To See The Request State", "No");
+                await DisplayAlert("Request Has Been Sent", "Check The Profile Page To See The Request State", "No");
             }
             catch
             {

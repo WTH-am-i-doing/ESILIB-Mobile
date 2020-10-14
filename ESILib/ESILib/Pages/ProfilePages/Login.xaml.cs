@@ -22,13 +22,13 @@ namespace ESILib.Pages.ProfilePages
             BackgroundImageSource = "https://images.pexels.com/photos/3747505/pexels-photo-3747505.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
         }
 
-        async void LoginMethod(string useremail, string password)
+        private async Task<bool> LoginMethod(string useremail, string password)
         {
             var p2 = useremail.Split('@')[1];
             if (!p2.Equals("esi-sba.dz"))
             {
                 await DisplayAlert("Error", "You Are Not From ESI_SBA", "OK");
-                return;
+                return false;
             }
 
             var config = new FirebaseAuthConfig
@@ -49,11 +49,13 @@ namespace ESILib.Pages.ProfilePages
                 var userCredential = await client.SignInWithEmailAndPasswordAsync(useremail, password);
                 App.Current.Properties.Add("User", JsonConvert.SerializeObject(userCredential.User.Info));
                 await App.Current.SavePropertiesAsync();
+                return true;
             }
             catch
             {
                 await DisplayAlert("Error", "Check Your Password And EMail Again, And Verify You Are Connected To The Internet", "Ok");
             }
+            return false;
         }
 
         async Task RegisterMethod(string useremail, string password,string name)
@@ -92,14 +94,15 @@ namespace ESILib.Pages.ProfilePages
 
         private async void LoginButton(object sender, EventArgs e)
         {
-            LoginMethod(useremail.Text, userpass.Text);
-            await Shell.Current.Navigation.PopAsync();
+            var b = await LoginMethod(useremail.Text, userpass.Text);
+            if(b)
+                await Shell.Current.Navigation.PopAsync();
         }
 
         private async void RegisterButton(object sender, EventArgs e)
         {
             await RegisterMethod(useremailreg.Text, userpassreg.Text, username.Text);
-            tabview.SelectedIndex -= 1;
+           
         }
     }
 }

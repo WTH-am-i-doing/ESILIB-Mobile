@@ -18,6 +18,10 @@ namespace ESILib.Pages.ProfilePages
         {
             InitializeComponent();
             Title = "Favourites";
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             bookList.ItemsSource = new ObservableCollection<Book>(App.LiteDB.Bks.Find(b=>b.isFavorite).ToList());
         }
 
