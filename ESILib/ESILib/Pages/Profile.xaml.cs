@@ -1,4 +1,5 @@
 ﻿using ESILib.Pages.ProfilePages;
+using ESILib.Pages.Settings;
 using Firebase.Auth;
 using Newtonsoft.Json;
 using System;
@@ -58,6 +59,26 @@ namespace ESILib.Pages
                 await App.Current.SavePropertiesAsync();
                 OnAppearing();
             }
+        }
+
+        private async void GeneralSettings(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushAsync(new GeneralSettings());
+        }
+        private async void Favourites(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushAsync(new Favorites());
+        }
+        private async void Wishlist(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushAsync(new WishList());
+        }
+        private async void LendingHistory(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushAsync(new LendingHistory());
+        }
+        private void HelpFeedback(object sender, EventArgs e)
+        {
         }
     }
 }

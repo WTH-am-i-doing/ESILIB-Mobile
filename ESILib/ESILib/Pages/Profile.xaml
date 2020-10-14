@@ -8,7 +8,7 @@
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
             </Frame.GestureRecognizers>
             <StackLayout Orientation="Horizontal" Spacing="18">
-                <Frame Padding="0" IsClippedToBounds="True" CornerRadius="60" BackgroundColor="#eee" HasShadow="False">
+                <Frame Padding="0" IsClippedToBounds="True" CornerRadius="60" HeightRequest="80" WidthRequest="80" BackgroundColor="#eee" HasShadow="False">
                     <Image Source="" x:Name="img" HeightRequest="80" WidthRequest="80" Aspect="AspectFit"/>
                 </Frame>
                 <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
@@ -20,22 +20,58 @@
         <ScrollView>
             <StackLayout>
                 <Frame Margin="16,0" CornerRadius="12" HasShadow="False" BackgroundColor="White">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GeneralSettings"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                     <StackLayout Orientation="Horizontal">
-                        <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf53f;"/>
-                        <Label VerticalOptions="Center" Text="Theme" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf085;" TextColor="Black"/>
+                        <Label VerticalOptions="Center" Text="General Settings" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
                         <Label FontFamily="{StaticResource Key=Solid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="&#xf054;"/>
                     </StackLayout>
                 </Frame>
                 <Frame Margin="16,0" CornerRadius="12" HasShadow="False" BackgroundColor="White">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Favourites"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                     <StackLayout Orientation="Horizontal">
-                        <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf0f3;"/>
-                        <Label VerticalOptions="Center" Text="Notifications" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf005;" TextColor="OrangeRed"/>
+                        <Label VerticalOptions="Center" Text="Favourites" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
                         <Label FontFamily="{StaticResource Key=Solid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="&#xf054;"/>
                     </StackLayout>
                 </Frame>
-                
-                
-                
+                <Frame Margin="16,0" CornerRadius="12" HasShadow="False" BackgroundColor="White">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Wishlist"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf02e;" TextColor="Green"/>
+                        <Label VerticalOptions="Center" Text="Wishlists" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Label FontFamily="{StaticResource Key=Solid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="&#xf054;"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="16,0" CornerRadius="12" HasShadow="False" BackgroundColor="White">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="LendingHistory"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf1da;" TextColor="DarkSlateGray"/>
+                        <Label VerticalOptions="Center" Text="Lending History" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Label FontFamily="{StaticResource Key=Solid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="&#xf054;"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="16,0" CornerRadius="12" HasShadow="False" BackgroundColor="White">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="HelpFeedback"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="{StaticResource Key=Solid}" VerticalOptions="Center" Text="&#xf05a;" TextColor="Black"/>
+                        <Label VerticalOptions="Center" Text="Help And Feedback" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Label FontFamily="{StaticResource Key=Solid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="&#xf054;"/>
+                    </StackLayout>
+                </Frame>
+
+
+
                 <!-- Log Out Part -->
                  
                 <Frame Margin="16,16,16,0" x:Name="LogoutFrame" IsVisible="False" CornerRadius="12" HasShadow="False" BackgroundColor="White">

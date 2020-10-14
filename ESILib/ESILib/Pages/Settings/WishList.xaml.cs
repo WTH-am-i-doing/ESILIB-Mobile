@@ -10,11 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace ESILib.Pages.Settings
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ContactUs : ContentPage
+    public partial class WishList : ContentPage
     {
-        public ContactUs()
+        public WishList()
         {
             InitializeComponent();
+            Title = "Wishlist";
         }
     }
 }

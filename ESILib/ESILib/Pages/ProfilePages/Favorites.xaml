@@ -2,11 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ESILib.Pages.ProfilePages.Favorites">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <CollectionView x:Name="bookList" Margin="8,1"
+                        SelectionMode="Single" SelectionChanged="bookList_SelectionChanged"
+                        >
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical"
+                        Span="3"
+                        VerticalItemSpacing="16"
+                        HorizontalItemSpacing="14" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Padding="0" HasShadow="True" Margin="0" CornerRadius="10" BackgroundColor="White">
+                    <Image Source="{Binding Coverurl}" Aspect="Fill" HeightRequest="170" Margin="0"/>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

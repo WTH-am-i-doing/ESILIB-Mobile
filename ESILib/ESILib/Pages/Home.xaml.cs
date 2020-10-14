@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -31,7 +31,7 @@ namespace ESILib.Pages
             try
             {
                 books = new ObservableCollection<Book>(await helper.GetLatestBooks());
-                collectbooks = new ObservableCollection<Book>(books.Take(4));
+                collectbooks = new ObservableCollection<Book>(books.Reverse().Take(4));
                 Books.ItemsSource = books.Where(i => !collectbooks.Contains(i));
                 First.ItemsSource = collectbooks;
                 foreach (var bok in books)
