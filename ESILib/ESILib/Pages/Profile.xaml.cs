@@ -25,6 +25,7 @@ namespace ESILib.Pages
             if (App.Current.Properties.ContainsKey("User"))
                 LogoutFrame.IsVisible = true;
             user.Text = App.Current.Properties.ContainsKey("User") ? (JsonConvert.DeserializeObject<UserInfo>(App.Current.Properties["User"] as string)).Email : "Login";
+            username.Text = App.Current.Properties.ContainsKey("User") ? (JsonConvert.DeserializeObject<UserInfo>(App.Current.Properties["User"] as string)).DisplayName : "";
 
             img.Source = "https://dummyimage.com/400x400/"+GenerateCode(6)+"/fff&text=" + user.Text.ToUpper().First();
         }

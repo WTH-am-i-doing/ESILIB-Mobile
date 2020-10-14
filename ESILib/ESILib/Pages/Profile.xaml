@@ -13,7 +13,7 @@
                 </Frame>
                 <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
                     <Label x:Name="user" Text="User Name" TextColor="Black" FontSize="22" FontAttributes="Bold"/>
-                    <Label Text="Student Of ESI-SBA" TextColor="Black" FontSize="18" />
+                    <Label x:Name="username" Text="User Name" TextColor="Black" FontSize="22" FontAttributes="Bold"/>
                 </StackLayout>
             </StackLayout>
         </Frame>

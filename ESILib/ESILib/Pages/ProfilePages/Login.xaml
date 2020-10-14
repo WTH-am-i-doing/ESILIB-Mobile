@@ -1,26 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
-
-             x:Class="ESILib.Pages.ProfilePages.Login">
-
-    <!--<StackLayout>
-        
-        
-             xmlns:control="clr-namespace:EssentialUIKit.Controls"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:local="clr-namespace:EssentialUIKit.Views.Forms"
-             xmlns:viewModel="clr-namespace:EssentialUIKit.ViewModels.Forms"
-             xmlns:converter="clr-namespace:EssentialUIKit.Converters"
-    </StackLayout>-->
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             x:Class="ESILib.Pages.ProfilePages.Login" Visual="Material" BackgroundColor="#eee">
     <ScrollView>
-        <Grid>
-            
-                                <Entry x:Name="useremail"></Entry>
-                                <Entry x:Name="pswd"></Entry>
-                                <Button Clicked="Button_Clicked"></Button>
-        </Grid>
+        <Frame HorizontalOptions="FillAndExpand" Padding="16" VerticalOptions="CenterAndExpand" Margin="16,0">
+            <tabView:SfTabView  x:Name="tabview" VisibleHeaderCount="2" EnableSwiping="False">
+                <tabView:SfTabView.SelectionIndicatorSettings>
+                    <tabView:SelectionIndicatorSettings Color="Black" Position="Bottom" StrokeThickness="3"/>
+                </tabView:SfTabView.SelectionIndicatorSettings>
+                <tabView:SfTabItem Title="Login" TitleFontColor="Black">
+                    <tabView:SfTabItem.Content>
+                        <StackLayout Spacing="4" VerticalOptions="CenterAndExpand">
+                            <Label Padding="2" FontSize="24" TextColor="Black" FontAttributes="Bold" Text="Welcome Back !"/>
+                            <Entry Visual="Material" x:Name="useremail" Placeholder="Email"/>
+                            <Entry Visual="Material" x:Name="userpass" IsPassword="True" Placeholder="Password"/>
+                            <Button Visual="Material" Text="Log In" Clicked="LoginButton"/>
+                        </StackLayout>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+                <tabView:SfTabItem Title="Register" TitleFontColor="Black">
+                    <tabView:SfTabItem.Content>
+                        <StackLayout Spacing="2" Padding="4,0">
+                            <Entry Visual="Material" x:Name="username" Placeholder="Full Name"/>
+                            <Entry Visual="Material" x:Name="useremailreg" Placeholder="Email"/>
+                            <Entry Visual="Material" x:Name="userpassreg" IsPassword="True" Placeholder="Password"/>
+                            <Entry Visual="Material" x:Name="cfrmpassreg" Placeholder="Confirm Password"/>
+                            <Button Visual="Material" Text="Sign Up" Clicked="RegisterButton"/>
+                        </StackLayout>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+            </tabView:SfTabView>
+        </Frame>
     </ScrollView>
-
 </ContentPage>

@@ -25,6 +25,9 @@ namespace ESILib
 
         public App()
         {
+
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzM0NjUwQDMxMzgyZTMzMmUzMGFrRGM3enVuVVg1akhYVmpVaGRBdVJmbFZkYWpnT2tSSEs0OUhPWndycjg9");
+
             InitializeComponent();
 
             if(App.Current.Properties.ContainsKey("Intro"))
