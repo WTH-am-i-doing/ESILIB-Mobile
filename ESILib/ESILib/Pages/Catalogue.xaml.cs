@@ -16,6 +16,7 @@ namespace ESILib.Pages
     public partial class Catalogue : ContentPage
     {
         private FirebaseHelper helper = new FirebaseHelper();
+        private ObservableCollection<Book> GetBooks;
         public Catalogue()
         {
             InitializeComponent();
@@ -25,9 +26,9 @@ namespace ESILib.Pages
         {
             try
             {
-                var books = await helper.GetAllBooks();
-                bookList.ItemsSource = new ObservableCollection<Book>(books);
-                foreach (var bok in books)
+                GetBooks = new ObservableCollection<Book>(await helper.GetAllBooks());
+                bookList.ItemsSource = new ObservableCollection<Book>(GetBooks);
+                foreach (var bok in GetBooks)
                 {
                     if (App.LiteDB.Bks.FindOne(b => b.ISBN == bok.ISBN) == null)
                     {
@@ -54,6 +55,11 @@ namespace ESILib.Pages
             ((CollectionView)sender).SelectedItem = null;
             if (book != null)
                 await Shell.Current.Navigation.PushModalAsync(new BookDetails(book));
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            bookList.ItemsSource = GetBooks.Where(b=>(b.Title +" " +b.Description+" " + b.Author).ToLower().Contains(e.NewTextValue.ToLower()));
         }
     }
 }

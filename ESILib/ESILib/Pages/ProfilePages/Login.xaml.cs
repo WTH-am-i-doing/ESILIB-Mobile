@@ -57,11 +57,12 @@ namespace ESILib.Pages.ProfilePages
             }
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             string email = useremail.Text;
             string pass = pswd.Text;
             LoginMethod(email, pass);
+            await Shell.Current.Navigation.PopAsync();
         }
     }
 }

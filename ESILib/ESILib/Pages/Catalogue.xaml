@@ -4,7 +4,7 @@
              x:Class="ESILib.Pages.Catalogue" Shell.NavBarIsVisible="False">
     <RefreshView Refreshing="RefreshView_Refreshing">
         <StackLayout>
-            <SearchBar></SearchBar>
+            <SearchBar TextChanged="SearchBar_TextChanged"></SearchBar>
             <CollectionView x:Name="bookList" Margin="8,1"
                         SelectionMode="Single" SelectionChanged="bookList_SelectionChanged"
                         >

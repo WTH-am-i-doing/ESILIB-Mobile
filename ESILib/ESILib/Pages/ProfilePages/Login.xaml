@@ -1,13 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+
              x:Class="ESILib.Pages.ProfilePages.Login">
 
-    <StackLayout>
-        <Entry x:Name="useremail"></Entry>
-        <Entry x:Name="pswd"></Entry>
-        <Button Clicked="Button_Clicked"></Button>
-    </StackLayout>
-    
+    <!--<StackLayout>
+        
+        
+             xmlns:control="clr-namespace:EssentialUIKit.Controls"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:local="clr-namespace:EssentialUIKit.Views.Forms"
+             xmlns:viewModel="clr-namespace:EssentialUIKit.ViewModels.Forms"
+             xmlns:converter="clr-namespace:EssentialUIKit.Converters"
+    </StackLayout>-->
+    <ScrollView>
+        <Grid>
+            
+                                <Entry x:Name="useremail"></Entry>
+                                <Entry x:Name="pswd"></Entry>
+                                <Button Clicked="Button_Clicked"></Button>
+        </Grid>
+    </ScrollView>
 
 </ContentPage>

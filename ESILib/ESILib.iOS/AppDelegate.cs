@@ -26,6 +26,7 @@ namespace ESILib.iOS
             Xamarin.Forms.Forms.SetFlags(new string[] { "CarouselView_Experimental", "IndicatorView_Experimental", "SwipeView_Experimental" });
 
             Xamarin.Forms.Forms.Init();
+            Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
             Xamarin.Forms.FormsMaterial.Init();
             LoadApplication(new App());
 
