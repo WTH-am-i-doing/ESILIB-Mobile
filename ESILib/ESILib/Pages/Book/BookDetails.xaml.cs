@@ -22,7 +22,7 @@ namespace ESILib.Pages
             if (App.Current.Properties.ContainsKey("User"))
                 Requesting.IsVisible = true;
             if (!App.Current.Properties.ContainsKey("RqKey"))
-                Requesting.IsEnabled = false;
+                Requesting.IsEnabled = true;
             this.book = App.LiteDB.Bks.FindOne(b => b.ISBN == book.ISBN);
             Fav.TextColor = this.book.isFavorite ? Color.Red : Color.Gray;
         }
